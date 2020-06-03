@@ -42,3 +42,19 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Technical Breakdown
+The application uses hooks everywhere
+
+I've used useEffect to mirror componentDidMount functionality, to load the listings on first mount.
+After every submit (edit, create, delete) I redirect to the home component so that it triggers a new mount which reloads the listings.
+
+I've used Context to load the rates on application start and then provide them where needed
+I took a similar approach with the UserContext that abstracts away methods used to authenticate and also 
+provides access to the user object wherever necessary.
+
+For currency conversion :
+
+Fixer as requested(https://fixer.io/ ) latest access is restircted. So I wasn't able to get conversion rates from GBP to USD ,etc..
+So I switched to The European Bank API
+https://api.exchangeratesapi.io/latest?base=GBP
